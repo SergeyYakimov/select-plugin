@@ -19,6 +19,7 @@ $height: 46px;
 .select {
   width: 100%;
   position: relative;
+  z-index: 100;
 
   &.open {
     .select__dropdown {
@@ -27,6 +28,10 @@ $height: 46px;
 
     .select__input {
       border-bottom: none;
+    }
+
+    .select__backdrop {
+      display: block;
     }
   }
 
@@ -64,10 +69,26 @@ $height: 46px;
     padding: 1rem;
     border-bottom: 1px solid #ccc;
 
+    &.selected {
+      background-color: bisque;
+    }
+
     &:hover {
       background-color: #eee;
       cursor: pointer;
       transition: .15s background-color ease-in;
     }
   }
+
+  &__backdrop {
+    position: fixed;
+    display: none;
+    z-index: -1;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: transparent;
+  }
 }
+
